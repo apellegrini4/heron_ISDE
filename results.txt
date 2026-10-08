@@ -1,1 +1,1 @@
-[('password-reset-urgent.eml', 'PHISHING', 9), ('receipt.eml', 'ok', 0), ('internal-meeting.eml', 'ok', 0), ('newsletter.eml', 'ok', 0), ('paypal-impersonation.eml', 'PHISHING', 14), ('prize-scam.eml', 'PHISHING', 9), ('fake_paypal.eml', 'PHISHING', 5)]
+[('password-reset-urgent.eml', 'PHISHING', 9), ('receipt.eml', 'ok', 0), ('internal-meeting.eml', 'ok', 0), ('newsletter.eml', 'ok', 0), ('paypal-impersonation.eml', 'PHISHING', 14), ('prize-scam.eml', 'PHISHING', 9)]
