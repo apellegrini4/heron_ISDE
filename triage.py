@@ -28,7 +28,10 @@ KEYWORDS = ["urgent", "verify", "suspended", "password", "expires", "act now",
             "congratulations", "winner", "claim", "immediately", "gift card"]
 
 
-def check_mail(folder, flagged=[]):
+def check_mail(folder, flagged=None):
+    if flagged is None:
+        flagged = []
+
     files = os.listdir(folder)
 
     for fn in files:
@@ -103,7 +106,7 @@ def check_mail(folder, flagged=[]):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print('you must pass a folder path as argument')
+        print('you must pass a folder path as argument', file=sys.stderr)
         sys.exit(2)
 
     check_mail(sys.argv[1])
