@@ -29,9 +29,12 @@ KEYWORDS = ["urgent", "verify", "suspended", "password", "expires", "act now",
 
 
 def check_mail(folder, flagged=None):
+    #moving theese two guarantees a clean state every time the function is executed and also prevents state accumlation and a better memory managament
     scores = {}
     verdicts = []
 
+    #before there was check_mail(folder, flagged=[]): but defining a list in that way is not corret,
+    #'cause the list is defined only 1 time, then if the function is called again the same list is reused
     if flagged is None:
         flagged = []
 
@@ -68,7 +71,7 @@ def check_mail(folder, flagged=None):
             if "xn--" in u: #punycode
                 s = s + W_PUNYCODE_LINK
 
-        #THE LOGIC IS REPETITIVE
+        #THE LOGIC WAS REPETITIVE, numbers without label have been substituted with MACROS
         # sender says paypal/microsoft/amazon but domain is weird
         if "paypal" in frm.lower() and "paypal.com" not in frm.lower(): #HARD-CODED variables (paypal.com, but also 'not in' in my opinion is wrong)
             s = s + W_BRAND_MISMATCH
@@ -109,7 +112,7 @@ def check_mail(folder, flagged=None):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print('you must pass a folder path as argument', file=sys.stderr)
+        print('you must pass a folder path as argument', file=sys.stderr) #an error is typically printed in the standard error 
         sys.exit(2)
 
     check_mail(sys.argv[1])
